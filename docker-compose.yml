@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: truetrace-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_NAME=TrueTrace AI
+      - DATABASE_URL=postgresql://truetrace:supersecretpass@db:5432/truetrace_db
+      - SECRET_KEY=replace-with-a-secure-random-32-character-secret-in-production
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    container_name: truetrace-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: truetrace
+      POSTGRES_PASSWORD: supersecretpass
+      POSTGRES_DB: truetrace_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U truetrace -d truetrace_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

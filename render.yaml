@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: truetrace-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: DATABASE_URL
+        fromDatabase:
+          name: truetrace-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PROJECT_NAME
+        value: "TrueTrace AI"
+      - key: ENVIRONMENT
+        value: "production"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "120"
+
+databases:
+  - name: truetrace-db
+    databaseName: truetrace_db
+    user: truetrace
+    region: oregon
+    plan: free

@@ -1,0 +1,16 @@
+{
+  "name": "@truetrace/shared-types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript definitions and interfaces for TrueTrace AI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["truetrace", "types", "security"],
+  "author": "TrueTrace AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}

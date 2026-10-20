@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "TrueTrace AI",
+    "slug": "truetrace-ai",
+    "owner": "truetrace-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#050811",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.truetrace.ai",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0a0f1d"
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ],
+      "blockedPermissions": [
+        "CAMERA",
+        "READ_CONTACTS",
+        "WRITE_CONTACTS",
+        "READ_SMS",
+        "SEND_SMS",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_CALL_LOG"
+      ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a619ef60-6137-456c-823c-aaa8cb79ca6f"
+      }
+    }
+  }
+}

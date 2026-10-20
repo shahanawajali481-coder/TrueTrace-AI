@@ -1,0 +1,17 @@
+{
+  "short_name": "TrueTrace",
+  "name": "TrueTrace AI — Digital Identity Risk Assessment",
+  "icons": [
+    {
+      "src": "/shield.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#050811",
+  "theme_color": "#0a0f1d",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "Evidence-based risk assessments for emails, social media profiles, and phone numbers."
+}
